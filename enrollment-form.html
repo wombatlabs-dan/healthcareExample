@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Enrollment Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form-styles.css">
+</head>
+<body>
+    <script src="js/persona-card.js"></script>
+    <div class="container">
+        <div class="header">
+            <h1>Health Insurance Enrollment</h1>
+        </div>
+
+        <div class="form-container">
+            <form id="enrollmentForm">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age <span class="required">*</span></label>
+                            <input type="number" id="age" name="age" min="0" max="120" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="maritalStatus">Marital Status <span class="required">*</span></label>
+                            <select id="maritalStatus" name="maritalStatus" required>
+                                <option value="">Select...</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="widowed">Widowed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Education Level <span class="required">*</span></label>
+                            <select id="education" name="education" required>
+                                <option value="">Select...</option>
+                                <option value="high-school">High School</option>
+                                <option value="bachelors">Bachelor's Degree</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="doctorate">Doctorate</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="form-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-group">
+                        <label for="address">Street Address <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State <span class="required">*</span></label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{5}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <!-- Employment Information Section -->
+                <div class="form-section">
+                    <h2>Employment Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="occupation">Occupation <span class="required">*</span></label>
+                            <input type="text" id="occupation" name="occupation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employmentStatus">Employment Status <span class="required">*</span></label>
+                            <select id="employmentStatus" name="employmentStatus" required>
+                                <option value="">Select...</option>
+                                <option value="employed">Employed</option>
+                                <option value="self-employed">Self-Employed</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="laid-off">Laid Off</option>
+                                <option value="retired">Retired</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="employerName">Employer Name (if applicable)</label>
+                        <input type="text" id="employerName" name="employerName">
+                    </div>
+                    <div class="form-group">
+                        <label for="annualIncome">Projected Annual Income <span class="required">*</span></label>
+                        <input type="number" id="annualIncome" name="annualIncome" min="0" step="1000" required>
+                    </div>
+                </div>
+
+                <!-- Coverage Information Section -->
+                <div class="form-section">
+                    <h2>Coverage Information</h2>
+                    <div class="form-group">
+                        <label for="planType">Preferred Plan Type <span class="required">*</span></label>
+                        <select id="planType" name="planType" required>
+                            <option value="">Select...</option>
+                            <option value="ppo">PPO (Preferred Provider Organization)</option>
+                            <option value="hmo">HMO (Health Maintenance Organization)</option>
+                            <option value="epo">EPO (Exclusive Provider Organization)</option>
+                            <option value="pos">POS (Point of Service)</option>
+                            <option value="catastrophic">Catastrophic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Coverage Needs <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="needRoutine" name="coverageNeeds" value="routine">
+                                <label for="needRoutine">Routine Care</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="needEmergency" name="coverageNeeds" value="emergency">
+                                <label for="needEmergency">Emergency/Catastrophic Coverage</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="needSpecialists" name="coverageNeeds" value="specialists">
+                                <label for="needSpecialists">Specialist Access</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="needPrescriptions" name="coverageNeeds" value="prescriptions">
+                                <label for="needPrescriptions">Prescription Coverage</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dependents Section -->
+                <div class="form-section">
+                    <h2>Dependents</h2>
+                    <div class="form-group">
+                        <label for="hasDependents">Do you have dependents to enroll? <span class="required">*</span></label>
+                        <select id="hasDependents" name="hasDependents" required>
+                            <option value="">Select...</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div id="dependentsContainer" class="dependents-section" style="display: none;">
+                        <!-- Dependents will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Health Information Section -->
+                <div class="form-section">
+                    <h2>Health Information</h2>
+                    <div class="form-group">
+                        <label for="specialNeeds">Special Health Needs or Conditions</label>
+                        <textarea id="specialNeeds" name="specialNeeds" rows="4" placeholder="Please describe any ongoing health conditions, special needs, or required treatments..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentDoctors">Current Doctors/Specialists (if applicable)</label>
+                        <textarea id="currentDoctors" name="currentDoctors" rows="3" placeholder="List any doctors or specialists you need to maintain access to..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Compare Plans</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Persona data
+        const personas = {
+            emily: {
+                firstName: "Emily",
+                lastName: "Watson",
+                age: 29,
+                dateOfBirth: "1995-06-15",
+                maritalStatus: "single",
+                education: "bachelors",
+                address: "2847 Mission Street, Apt 4B",
+                city: "San Francisco",
+                state: "CA",
+                zipCode: "94110",
+                phone: "(415) 555-2847",
+                email: "emily.watson@email.com",
+                occupation: "UX Designer",
+                employmentStatus: "laid-off",
+                employerName: "Previously: TechCorp Inc.",
+                annualIncome: 45000,
+                planType: "ppo",
+                coverageNeeds: ["routine", "emergency"],
+                hasDependents: "no",
+                dependents: [],
+                specialNeeds: "Recurring breast ultrasound every six months due to a cyst",
+                currentDoctors: "Dr. Sarah Chen, Radiology Specialist - UCSF Medical Center",
+                paymentMethod: ["credit", "digital"],
+                platform: ["website", "mobile"]
+            },
+            steve: {
+                firstName: "Steve",
+                lastName: "Lendal",
+                age: 47,
+                dateOfBirth: "1977-06-15",
+                maritalStatus: "married",
+                education: "bachelors",
+                address: "1245 Lakeview Drive",
+                city: "West Lake Tahoe",
+                state: "CA",
+                zipCode: "96150",
+                phone: "(530) 555-1245",
+                email: "steve.lendal@email.com",
+                occupation: "Architect",
+                employmentStatus: "employed",
+                employerName: "Mountain Architecture Group",
+                annualIncome: 125000,
+                planType: "ppo",
+                coverageNeeds: ["specialists", "routine", "emergency", "prescriptions"],
+                hasDependents: "yes",
+                dependents: [
+                    { name: "Miles Lendal", age: 13, relationship: "son", specialNeeds: "Special needs - requires access to specialist doctors" },
+                    { name: "Alexis Lendal", age: 10, relationship: "daughter", specialNeeds: "" }
+                ],
+                specialNeeds: "Need to ensure Miles maintains uninterrupted access to his necessary specialist doctors",
+                currentDoctors: "Dr. Michael Rodriguez, Pediatric Neurologist - Stanford Children's Health; Dr. Jennifer Park, Developmental Pediatrician - UC Davis Medical Center",
+                paymentMethod: ["credit", "hsa"],
+                platform: ["website", "tablet"]
+            },
+            "leo-maya": {
+                firstName: "Leo",
+                lastName: "Torres",
+                spouseFirstName: "Maya",
+                spouseLastName: "Torres",
+                age: 27,
+                dateOfBirth: "1997-06-15",
+                maritalStatus: "married",
+                education: "bachelors",
+                address: "8923 Redondo Beach Boulevard, Unit 12",
+                city: "Gardena",
+                state: "CA",
+                zipCode: "90247",
+                phone: "(310) 555-8923",
+                email: "leo.torres@email.com",
+                occupation: "Co-Owner & Artisan",
+                employmentStatus: "self-employed",
+                employerName: "Torres Woodworking Studio",
+                annualIncome: 55000,
+                planType: "catastrophic",
+                coverageNeeds: ["emergency"],
+                hasDependents: "no",
+                dependents: [],
+                specialNeeds: "First-time business owners, need catastrophic protection due to workshop risks (lathes, saws)",
+                currentDoctors: "No current primary care physician",
+                paymentMethod: ["credit", "digital"],
+                platform: ["website", "mobile", "smartwatch"]
+            }
+        };
+
+        function calculateDateOfBirth(age) {
+            const today = new Date();
+            const birthYear = today.getFullYear() - age;
+            // Use a reasonable date (e.g., June 15th)
+            return `${birthYear}-06-15`;
+        }
+
+        function populateForm(personaKey) {
+            const persona = personas[personaKey];
+            const form = document.getElementById('enrollmentForm');
+
+            // Personal Information
+            document.getElementById('firstName').value = persona.firstName || '';
+            document.getElementById('lastName').value = persona.lastName || '';
+            document.getElementById('dateOfBirth').value = persona.dateOfBirth || '';
+            document.getElementById('age').value = persona.age || '';
+            document.getElementById('maritalStatus').value = persona.maritalStatus || '';
+            document.getElementById('education').value = persona.education || '';
+
+            // Contact Information
+            document.getElementById('address').value = persona.address || '';
+            document.getElementById('city').value = persona.city || '';
+            document.getElementById('state').value = persona.state || '';
+            document.getElementById('zipCode').value = persona.zipCode || '';
+            document.getElementById('phone').value = persona.phone || '';
+            document.getElementById('email').value = persona.email || '';
+
+            // Employment Information
+            document.getElementById('occupation').value = persona.occupation || '';
+            document.getElementById('employmentStatus').value = persona.employmentStatus || '';
+            document.getElementById('employerName').value = persona.employerName || '';
+            document.getElementById('annualIncome').value = persona.annualIncome || '';
+
+            // Coverage Information
+            document.getElementById('planType').value = persona.planType || '';
+            
+            // Clear and set coverage needs checkboxes
+            document.querySelectorAll('input[name="coverageNeeds"]').forEach(cb => cb.checked = false);
+            if (persona.coverageNeeds) {
+                const coverageMapping = {
+                    'routine': 'needRoutine',
+                    'emergency': 'needEmergency',
+                    'specialists': 'needSpecialists',
+                    'prescriptions': 'needPrescriptions'
+                };
+                persona.coverageNeeds.forEach(need => {
+                    const checkboxId = coverageMapping[need];
+                    if (checkboxId) {
+                        const checkbox = document.getElementById(checkboxId);
+                        if (checkbox) checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Dependents
+            document.getElementById('hasDependents').value = persona.hasDependents || '';
+            const dependentsContainer = document.getElementById('dependentsContainer');
+            
+            if (persona.hasDependents === 'yes' && persona.dependents && persona.dependents.length > 0) {
+                dependentsContainer.style.display = 'block';
+                dependentsContainer.innerHTML = '';
+                
+                persona.dependents.forEach((dependent, index) => {
+                    const dependentDiv = document.createElement('div');
+                    dependentDiv.className = 'dependent-item';
+                    dependentDiv.innerHTML = `
+                        <h3>Dependent ${index + 1}: ${dependent.name}</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" value="${dependent.name}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input type="number" value="${dependent.age}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship</label>
+                            <input type="text" value="${dependent.relationship}" readonly>
+                        </div>
+                        ${dependent.specialNeeds ? `
+                        <div class="form-group">
+                            <label>Special Needs</label>
+                            <textarea readonly>${dependent.specialNeeds}</textarea>
+                        </div>
+                        ` : ''}
+                    `;
+                    dependentsContainer.appendChild(dependentDiv);
+                });
+            } else {
+                dependentsContainer.style.display = 'none';
+            }
+
+            // Health Information
+            document.getElementById('specialNeeds').value = persona.specialNeeds || '';
+            document.getElementById('currentDoctors').value = persona.currentDoctors || '';
+        }
+
+        // Track current persona
+        let currentPersona = 'emily';
+
+        // Persona tile clicks are handled by shared persona-card.js
+
+        // Handle dependents dropdown change
+        document.getElementById('hasDependents').addEventListener('change', function(e) {
+            const dependentsContainer = document.getElementById('dependentsContainer');
+            if (e.target.value === 'yes') {
+                dependentsContainer.style.display = 'block';
+            } else {
+                dependentsContainer.style.display = 'none';
+            }
+        });
+
+        // Function to collect all form data
+        function collectFormData() {
+            const form = document.getElementById('enrollmentForm');
+            const formData = {};
+            
+            // Collect all input fields
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    // Handle checkboxes - collect all checked values
+                    if (input.name && !formData[input.name]) {
+                        formData[input.name] = [];
+                    }
+                    if (input.checked && input.name) {
+                        formData[input.name].push(input.value);
+                    }
+                } else if (input.type === 'radio') {
+                    // Handle radio buttons
+                    if (input.checked) {
+                        formData[input.name] = input.value;
+                    }
+                } else {
+                    // Handle text, number, email, tel, date, select, textarea
+                    if (input.name) {
+                        formData[input.name] = input.value;
+                    }
+                }
+            });
+            
+            // Handle dependents if they exist
+            const dependentsContainer = document.getElementById('dependentsContainer');
+            if (dependentsContainer && dependentsContainer.style.display !== 'none') {
+                const dependentItems = dependentsContainer.querySelectorAll('.dependent-item');
+                formData.dependents = [];
+                dependentItems.forEach(item => {
+                    const name = item.querySelector('input[readonly]')?.value || '';
+                    const age = item.querySelector('input[type="number"][readonly]')?.value || '';
+                    const relationship = item.querySelectorAll('input[readonly]')[1]?.value || '';
+                    const specialNeeds = item.querySelector('textarea[readonly]')?.value || '';
+                    if (name) {
+                        formData.dependents.push({ name, age, relationship, specialNeeds });
+                    }
+                });
+            }
+            
+            return formData;
+        }
+
+        // Handle form submission - Compare Plans
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect all form data
+            const formData = collectFormData();
+            
+            // Save the selected persona and form data to localStorage
+            localStorage.setItem('selectedPersona', currentPersona);
+            localStorage.setItem('formData', JSON.stringify(formData));
+            
+            // Map persona to plan comparison page
+            const planComparisonPages = {
+                'emily': 'plan-comparison-emily.html',
+                'steve': 'plan-comparison-steve.html',
+                'leo-maya': 'plan-comparison-leo-maya.html'
+            };
+            
+            const targetPage = planComparisonPages[currentPersona] || 'plan-comparison-emily.html';
+            window.location.href = targetPage;
+        });
+
+        // Initialize persona card with enrollment form handler
+        function handlePersonaClick(personaKey) {
+            currentPersona = personaKey;
+            updateActivePersona(personaKey);
+            populateForm(personaKey);
+        }
+        
+        // Initialize with saved persona or default to Emily
+        const savedPersona = localStorage.getItem('selectedPersona') || 'emily';
+        currentPersona = savedPersona;
+        
+        // Initialize persona card after DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initPersonaCard(savedPersona, handlePersonaClick);
+                populateForm(savedPersona);
+            });
+        } else {
+            initPersonaCard(savedPersona, handlePersonaClick);
+            populateForm(savedPersona);
+        }
+    </script>
+</body>
+</html>

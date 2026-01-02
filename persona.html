@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona - Meet Emily</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #4a4a4a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #4a4a4a;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .persona-image {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .persona-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .persona-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="js/persona-card.js"></script>
+    <div class="container">
+        <div class="header">
+            <h1 id="personaTitle">Meet Emily</h1>
+        </div>
+
+        <div class="persona-image">
+            <img id="personaImage" src="images/emily-persona.png" alt="Persona">
+        </div>
+    </div>
+
+    <script>
+        // Persona configuration
+        const personaConfig = {
+            'emily': {
+                title: 'Meet Emily',
+                image: 'images/emily-persona.png',
+                key: 'emily'
+            },
+            'steve': {
+                title: 'Meet Steve',
+                image: 'images/steve-persona.png',
+                key: 'steve'
+            },
+            'leo-maya': {
+                title: 'Meet Leo & Maya',
+                image: 'images/leo-maya-persona.png',
+                key: 'leo-maya'
+            }
+        };
+
+        // Get selected persona from localStorage or default to Emily
+        const selectedPersona = localStorage.getItem('selectedPersona') || 'emily';
+        const persona = personaConfig[selectedPersona] || personaConfig['emily'];
+
+        // Update page title and image
+        document.getElementById('personaTitle').textContent = persona.title;
+        const personaImage = document.getElementById('personaImage');
+        personaImage.src = persona.image;
+        personaImage.alt = persona.title;
+        
+        // Make image clickable - navigate to enrollment form
+        personaImage.addEventListener('click', function() {
+            window.location.href = 'enrollment-form.html';
+        });
+
+        // Initialize persona card for persona page
+        function handlePersonaClick(personaKey) {
+            // Navigate to enrollment form when a persona is clicked
+            window.location.href = 'enrollment-form.html';
+        }
+        
+        // Initialize persona card with the selected persona
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initPersonaCard(selectedPersona, handlePersonaClick);
+            });
+        } else {
+            initPersonaCard(selectedPersona, handlePersonaClick);
+        }
+    </script>
+</body>
+</html>
+

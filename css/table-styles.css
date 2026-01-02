@@ -1,0 +1,110 @@
+/* Shared Table Styles for Plan Comparison Pages */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.comparison-table thead {
+    background: #f8f8f8;
+}
+
+.comparison-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #4a4a4a;
+    border-bottom: 2px solid #d0d0d0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.comparison-table th:last-child {
+    border-right: none;
+}
+
+.comparison-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    vertical-align: top;
+}
+
+.comparison-table td:last-child {
+    border-right: none;
+}
+
+.comparison-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.carrier-name {
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.plan-name {
+    color: #666;
+    font-size: 13px;
+}
+
+.network-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #e8e8e8;
+    color: #4a4a4a;
+}
+
+.premium {
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.deductible, .copay, .imaging, .oop-max, .pediatric {
+    color: #666;
+}
+
+.why-it-matters {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.content {
+    padding: 40px;
+}
+
+@media (max-width: 1200px) {
+    .comparison-table {
+        font-size: 12px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+}
+

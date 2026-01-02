@@ -1,0 +1,130 @@
+/* Shared Persona Card Styles */
+.persona-tiles-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: #808080;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    user-select: none;
+}
+.persona-tiles-container.dragging {
+    cursor: grabbing !important;
+}
+.persona-tiles-container .drag-handle {
+    width: 100%;
+    height: 20px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.persona-tiles-container .drag-handle:active {
+    cursor: grabbing;
+}
+.persona-tiles-container .drag-handle::before {
+    content: "⋮⋮";
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.persona-tiles-container .persona-label {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.persona-tiles-container .start-over-link {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+.persona-tiles-container .start-over-link a {
+    color: white;
+    font-size: 11px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.persona-tiles-container .start-over-link a:hover {
+    opacity: 0.8;
+}
+.persona-tiles-container.dragging .persona-tile {
+    pointer-events: none;
+}
+.persona-tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.persona-tile {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+.persona-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.persona-tile.active {
+    border-color: #4a4a4a;
+    border-width: 4px;
+    box-shadow: 0 4px 16px rgba(74, 74, 74, 0.4);
+}
+.persona-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.persona-tile img[style*="display: none"] {
+    display: none !important;
+}
+.persona-tile .tile-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 3px;
+    font-size: 9px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 2;
+}
+.persona-tile .placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 9px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.persona-tile .placeholder[style*="display: flex"] {
+    display: flex !important;
+}
+
